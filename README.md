@@ -12,4 +12,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## note
 
-`@mui/material` `@emotion/react` `@emotion/styled` 설치 중 `Unable to resolve dependency tree` 에러로 `--force` 옵션으로 일단 작동 확인
+`@mui/material` `@mui/icons-material` `@emotion/react` `@emotion/styled` 설치 중 `Unable to resolve dependency tree` 에러로 `--force` 옵션으로 일단 작동 확인
+
+Card, app bar(account page), fab,
+
+리액 18의 createRoot로 바꾸기
