@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useRecoilState } from "recoil";
 import { addFormState } from "../state/form";
-import { boardState, Board } from "../state/board";
+import { boardListState, Board } from "../state/boardList";
 
 import { nanoid } from "nanoid";
 import Button from "@mui/material/Button";
@@ -19,7 +19,7 @@ function Addform() {
   const [open, setOpen] = useRecoilState(addFormState);
   const closeForm = () => setOpen(false);
 
-  const [boardList, setBoardList] = useRecoilState(boardState);
+  const [boardList, setBoardList] = useRecoilState(boardListState);
 
   const deleteBoard = (id: string) => {
     const newBoardList = boardList.filter((board) => board.id === id);

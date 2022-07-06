@@ -1,12 +1,12 @@
 import { useRecoilValue } from "recoil";
-import { boardState } from "../state/board";
+import { boardListState } from "../state/boardList";
 
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
 
-// import { dataList } from "../utils";
+// import { dataList } from "../utils/dummyData";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,7 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function Main() {
-  const boardList = useRecoilValue(boardState);
+  const boardList = useRecoilValue(boardListState);
   return (
     <Box
       display="flex"

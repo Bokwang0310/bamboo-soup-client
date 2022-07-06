@@ -7,7 +7,7 @@ export type Board = {
   content: string;
 };
 
-export const boardState = atom<Board[]>({
-  key: "boardState",
+export const boardListState = atom<Board[]>({
+  key: "boardListState",
   default: [],
 });
