@@ -2,6 +2,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
+import { dataList } from "../utils";
 // import { nanoid } from "nanoid"
 // import Typography from "@mui/material/Typography";
 
@@ -19,56 +20,6 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const dataList = [
-  {
-    title: "학교 진심 같지 않냐",
-    date: new Date(),
-    content:
-      "저번에 학교 뒷산에서 고앵이 발견했는데 어쩌다보니까 키우게 됨 ㅇㅇ",
-  },
-  {
-    title: "우리 학교를 사랑합시다",
-    date: new Date(),
-    content:
-      "우리 학교에 대한 애정이 학교를 굴러가게 만든다는 사실을 당신은 알고 계십니까, 레몬 한 개에는 비타민 C 레몬 한 개 분량이",
-  },
-  {
-    title: "수학 수행 언제까지냐",
-    date: new Date(),
-    content: "오늘까지면 진심 자살",
-  },
-  {
-    title: "우리 학교를 사랑합시다",
-    date: new Date(),
-    content:
-      "우리 학교에 대한 애정이 학교를 굴러가게 만든다는 사실을 당신은 알고 계십니까, 레몬 한 개에는 비타민 C 레몬 한 개 분량이",
-  },
-  {
-    title: "우리 학교를 사랑합시다",
-    date: new Date(),
-    content:
-      "우리 학교에 대한 애정이 학교를 굴러가게 만든다는 사실을 당신은 알고 계십니까, 레몬 한 개에는 비타민 C 레몬 한 개 분량이",
-  },
-  {
-    title: "우리 학교를 사랑합시다",
-    date: new Date(),
-    content:
-      "우리 학교에 대한 애정이 학교를 굴러가게 만든다는 사실을 당신은 알고 계십니까, 레몬 한 개에는 비타민 C 레몬 한 개 분량이",
-  },
-  {
-    title: "우리 학교를 사랑합시다",
-    date: new Date(),
-    content:
-      "우리 학교에 대한 애정이 학교를 굴러가게 만든다는 사실을 당신은 알고 계십니까, 레몬 한 개에는 비타민 C 레몬 한 개 분량이",
-  },
-  {
-    title: "우리 학교를 사랑합시다",
-    date: new Date(),
-    content:
-      "우리 학교에 대한 애정이 학교를 굴러가게 만든다는 사실을 당신은 알고 계십니까, 레몬 한 개에는 비타민 C 레몬 한 개 분량이",
-  },
-];
-
 function Main() {
   return (
     <Box
@@ -77,7 +28,7 @@ function Main() {
       justifyContent="center"
       flexDirection="column"
     >
-      <Masonry columns={4} spacing={2}>
+      <Masonry columns={2} spacing={2}>
         {/* {heights.map((height, index) => (
             <Item key={index} sx={{ height }}>
               {index + 1}
