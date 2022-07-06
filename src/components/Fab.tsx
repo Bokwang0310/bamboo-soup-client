@@ -1,10 +1,14 @@
+import { useSetRecoilState } from "recoil";
+import { addFormState } from "../state/form";
+
 import Mfab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
 function Fab() {
+  const setOpen = useSetRecoilState(addFormState);
   return (
     <Mfab
-      onClick={() => {}}
+      onClick={() => setOpen(true)}
       color="primary"
       aria-label="add"
       style={{

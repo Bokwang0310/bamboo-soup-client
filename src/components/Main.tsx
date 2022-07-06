@@ -1,16 +1,12 @@
+import { useRecoilValue } from "recoil";
+import { boardState } from "../state/board";
+
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
-import { dataList } from "../utils";
-// import { nanoid } from "nanoid"
-// import Typography from "@mui/material/Typography";
 
-/*
-const heights = [
-  150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80,
-];
-*/
+// import { dataList } from "../utils";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,22 +17,27 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function Main() {
+  const boardList = useRecoilValue(boardState);
   return (
     <Box
       display="flex"
       height="100%"
       justifyContent="center"
+      alignContent="center"
       flexDirection="column"
     >
-      <Masonry columns={2} spacing={2}>
-        {/* {heights.map((height, index) => (
-            <Item key={index} sx={{ height }}>
-              {index + 1}
-            </Item>
-          ))} */}
-        {dataList.map((data, index) => (
+      <Masonry
+        // 디바이스 가로 길이에 따라 자동 조절 필요
+        columns={2}
+        spacing={2}
+        style={{
+          padding: 10,
+        }}
+      >
+        {boardList.map((data, index) => (
           <Item key={index}>
-            <Box padding={5}>{data.content}</Box>
+            {/* 제목 표시 칸 추가 필요 */}
+            <Box padding={2}>{data.content}</Box>
           </Item>
         ))}
       </Masonry>
