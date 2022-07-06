@@ -2,10 +2,10 @@
 
 ## ToDo
 
-- 리액 18의 createRoot로 바꾸기
-- npm audit 문제; lock 파일이랑 모듈 폴더 지우고 아예 다시 설치
-- TobBar -> FabBtn
-- Masonry 컴포넌트 중앙 배열
+- 리액 18의 createRoot로 바꾸기 # 안할래
+- npm audit 문제; lock 파일이랑 모듈 폴더 지우고 아예 다시 설치 # 그냥 개노답
+- FabBtn 만들기
+- Masonry 컴포넌트 중앙 배열 -> 위 아래 마진 주기?
 - mui lab 타입 확인
 
 ## Memo
