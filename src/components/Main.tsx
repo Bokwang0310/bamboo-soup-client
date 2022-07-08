@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
+import Typography from "@mui/material/Typography";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -36,8 +37,10 @@ function Main() {
       >
         {boardList.map((data, index) => (
           <Item key={index}>
-            {/* 제목 표시 칸 추가 필요 */}
-            <Box padding={2}>{data.content}</Box>
+            <Box padding={2}>
+              <Typography variant="h6">{data.title}</Typography>
+              <div>{data.content}</div>
+            </Box>
           </Item>
         ))}
       </Masonry>
