@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useRecoilState } from "recoil";
 import { addFormState } from "../state/form";
-import { boardListState, Board } from "../state/boardList";
+import { useDispatchBoardList } from "../hooks/useDispatchBoardList";
 
 import { nanoid } from "nanoid";
 import Button from "@mui/material/Button";
@@ -13,30 +13,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-const FIVE_MINUTE = 60000 * 5;
-
 function Addform() {
   const [open, setOpen] = useRecoilState(addFormState);
   const closeForm = () => setOpen(false);
 
-  const [boardList, setBoardList] = useRecoilState(boardListState);
-
-  const deleteBoard = (id: string) => {
-    const newBoardList = boardList.filter((board) => board.id === id);
-    setBoardList(newBoardList);
-  };
-
-  const addBoard = (newBoard: Board) => {
-    const currentId = newBoard.id;
-
-    const newBoardList = [...boardList, newBoard];
-    setBoardList(newBoardList);
-
-    // 생성한 보드는 생성 직후 일정 시간 뒤에 자동 삭제 -> 백엔드에서 새로 구현 예정
-    setTimeout(() => {
-      deleteBoard(currentId);
-    }, FIVE_MINUTE);
-  };
+  const { addBoard } = useDispatchBoardList();
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");

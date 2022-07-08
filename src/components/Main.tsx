@@ -1,12 +1,12 @@
+import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { boardListState } from "../state/boardList";
+import { useDispatchBoardList } from "../hooks/useDispatchBoardList";
 
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
-
-// import { dataList } from "../utils/dummyData";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,22 +17,35 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function Main() {
+  const { cleanBoardList } = useDispatchBoardList();
+
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     cleanBoardList();
+  //     console.log("Inter");
+  //   }, 1000 * 5);
+  //   return () => clearInterval(timer);
+  // }, []);
+
   const boardList = useRecoilValue(boardListState);
+
   return (
     <Box
       display="flex"
       height="100%"
       justifyContent="center"
-      alignContent="center"
       flexDirection="column"
     >
       <Masonry
         // 디바이스 가로 길이에 따라 자동 조절 필요
         columns={2}
         spacing={2}
-        style={{
-          padding: 10,
-        }}
+        style={
+          {
+            // padding: 10,
+            // 이거 키면 레이아웃 다 망가짐.. up이랑 left만 따로 줘야할 듯
+          }
+        }
       >
         {boardList.map((data, index) => (
           <Item key={index}>
