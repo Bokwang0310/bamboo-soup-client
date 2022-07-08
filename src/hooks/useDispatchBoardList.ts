@@ -1,24 +1,18 @@
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { boardListState, Board } from "../state/boardList";
 import { isPassedMinute } from "../utils";
 
 // const FIVE_MIN = 10000 * 6 * 5
 
 export function useDispatchBoardList() {
-  const [boardList, setBoardList] = useRecoilState(boardListState);
+  const setBoardList = useSetRecoilState(boardListState);
 
   const addBoard = (newBoard: Board) => {
-    const newBoardList = [...boardList, newBoard];
-    setBoardList(newBoardList);
-
-    setTimeout(() => {
-      deleteBoard(newBoard.id);
-    }, 5000);
+    setBoardList((boardList) => [...boardList, newBoard]);
   };
 
   const deleteBoard = (id: string) => {
-    const newBoardList = boardList.filter((board) => board.id === id);
-    setBoardList(newBoardList);
+    setBoardList((boardList) => boardList.filter((board) => board.id === id));
   };
 
   const cleanBoardList = () => {

@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { boardListState } from "../state/boardList";
-import { useDispatchBoardList } from "../hooks/useDispatchBoardList";
 
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -17,18 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function Main() {
-  const { cleanBoardList } = useDispatchBoardList();
-
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     cleanBoardList();
-  //     console.log("Inter");
-  //   }, 1000 * 5);
-  //   return () => clearInterval(timer);
-  // }, []);
-
   const boardList = useRecoilValue(boardListState);
-
   return (
     <Box
       display="flex"
